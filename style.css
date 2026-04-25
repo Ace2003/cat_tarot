@@ -19,12 +19,15 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .header {
     text-align: center;
     margin-bottom: 30px;
+    padding: 20px 0;
     animation: fadeInDown 1s ease-out;
+    z-index: 10;
 }
 
 .title {
@@ -46,12 +49,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px 0;
+    position: relative;
+    z-index: 5;
 }
 
 /* 介绍页面 */
 .intro {
     text-align: center;
     animation: fadeIn 1s ease-out;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(156, 39, 176, 0.15);
+    max-width: 600px;
 }
 
 .cat-icon {
@@ -81,6 +92,7 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .start-btn:hover, .shuffle-btn:hover, .draw-btn:hover, .restart-btn:hover {
@@ -103,17 +115,33 @@ body {
     left: 100%;
 }
 
+.draw-btn {
+    background: linear-gradient(135deg, #64b5f6 0%, #4dd0e1 100%);
+    box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+}
+
+.draw-btn:hover {
+    box-shadow: 0 6px 20px rgba(100, 181, 246, 0.6);
+}
+
 /* 洗牌页面 */
 .shuffle-section {
     text-align: center;
     animation: fadeIn 0.5s ease-out;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(156, 39, 176, 0.15);
+    max-width: 600px;
+    width: 100%;
 }
 
 .deck-container {
     position: relative;
     width: 200px;
     height: 280px;
-    margin: 0 auto 30px;
+    margin: 0 auto 50px;
+    z-index: 1;
 }
 
 .deck {
@@ -137,6 +165,7 @@ body {
     top: 0;
     left: 0;
     transition: transform 0.3s ease;
+    z-index: 1;
 }
 
 .card-pattern {
@@ -161,18 +190,20 @@ body {
 
 .card-count {
     position: absolute;
-    bottom: -40px;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.1rem;
     color: #7b1fa2;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .shuffle-text {
     font-size: 1.2rem;
     color: #6a1b9a;
     margin-bottom: 30px;
+    line-height: 1.6;
 }
 
 .action-buttons {
@@ -180,6 +211,7 @@ body {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 /* 解读页面 */
@@ -187,6 +219,7 @@ body {
     text-align: center;
     animation: fadeIn 0.5s ease-out;
     width: 100%;
+    padding: 20px 0;
 }
 
 .reading-title {
@@ -203,6 +236,7 @@ body {
     gap: 30px;
     margin-bottom: 40px;
     flex-wrap: wrap;
+    padding: 20px 0;
 }
 
 .card-wrapper {
@@ -210,6 +244,7 @@ body {
     height: 250px;
     perspective: 1000px;
     animation: fadeInUp 0.8s ease-out;
+    z-index: 1;
 }
 
 .card-wrapper:nth-child(1) { animation-delay: 0.2s; }
@@ -243,6 +278,7 @@ body {
     justify-content: center;
     padding: 15px;
     overflow: hidden;
+    z-index: 1;
 }
 
 .card-back-face {
@@ -286,13 +322,17 @@ body {
     opacity: 0.8;
 }
 
+/* 解读容器 */
 .interpretation-container {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 30px;
     box-shadow: 0 5px 20px rgba(156, 39, 176, 0.2);
     animation: fadeInUp 1s ease-out;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .interpretation-title {
@@ -300,31 +340,52 @@ body {
     color: #7b1fa2;
     margin-bottom: 20px;
     font-family: 'Ma Shan Zheng', cursive;
+    text-align: center;
+}
+
+.interpretation-summary {
+    background: rgba(206, 147, 216, 0.1);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #ce93d8;
+}
+
+.summary-text {
+    font-size: 1.1rem;
+    color: #6a1b9a;
+    line-height: 1.6;
 }
 
 .interpretation-item {
     margin-bottom: 25px;
     text-align: left;
-    padding-bottom: 20px;
+    padding: 20px;
+    padding-bottom: 25px;
     border-bottom: 1px dashed #ce93d8;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
 }
 
 .interpretation-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 20px;
 }
 
 .interpretation-card-name {
     font-size: 1.2rem;
     color: #9c27b0;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .interpretation-meaning {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.8;
     color: #5e35b1;
 }
 
@@ -332,9 +393,69 @@ body {
     color: #7b1fa2;
 }
 
+/* 综合解读 */
+.interpretation-overall {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(206, 147, 216, 0.2) 0%, rgba(244, 143, 177, 0.2) 100%);
+    border-radius: 15px;
+    border: 2px solid rgba(206, 147, 216, 0.3);
+}
+
+.overall-title {
+    font-size: 1.3rem;
+    color: #7b1fa2;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Ma Shan Zheng', cursive;
+}
+
+.overall-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #5e35b1;
+    text-align: justify;
+}
+
 /* 工具类 */
 .hidden {
     display: none !important;
+}
+
+/* 加载遮罩 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(252, 228, 236, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(206, 147, 216, 0.3);
+    border-top: 4px solid #9c27b0;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    color: #7b1fa2;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* 动画 */
@@ -388,19 +509,63 @@ body {
     animation: shuffle 0.6s ease-in-out;
 }
 
+/* 页脚 */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #9c27b0;
+    opacity: 0.7;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .title {
         font-size: 1.8rem;
     }
     
+    .intro {
+        padding: 25px;
+        margin: 10px;
+    }
+    
     .intro-text {
         font-size: 1.1rem;
     }
     
+    .cat-icon {
+        font-size: 5rem;
+    }
+    
+    .shuffle-section {
+        padding: 25px;
+        margin: 10px;
+    }
+    
+    .deck-container {
+        width: 160px;
+        height: 224px;
+        margin-bottom: 40px;
+    }
+    
+    .card-count {
+        bottom: -40px;
+        font-size: 1rem;
+    }
+    
+    .cards-container {
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
     .card-wrapper {
-        width: 150px;
-        height: 210px;
+        width: 140px;
+        height: 196px;
     }
     
     .card-image {
@@ -413,42 +578,86 @@ body {
     
     .interpretation-container {
         padding: 20px;
+        margin: 0 10px 20px 10px;
+    }
+    
+    .interpretation-item {
+        padding: 15px;
     }
     
     .action-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
     
-    .cards-container {
-        gap: 15px;
+    .start-btn, .shuffle-btn, .draw-btn, .restart-btn {
+        width: 100%;
+        max-width: 250px;
     }
 }
 
 @media (max-width: 480px) {
+    .app {
+        padding: 10px;
+    }
+    
     .title {
         font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
     }
     
     .cat-icon {
         font-size: 4rem;
     }
     
+    .intro-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .deck-container {
+        width: 140px;
+        height: 196px;
+    }
+    
+    .cat-emoji {
+        font-size: 2rem;
+    }
+    
     .card-wrapper {
-        width: 130px;
-        height: 180px;
+        width: 120px;
+        height: 168px;
     }
     
     .card-image {
         font-size: 2.5rem;
     }
     
-    .deck-container {
-        width: 150px;
-        height: 210px;
+    .card-name {
+        font-size: 0.85rem;
     }
     
-    .cat-emoji {
-        font-size: 2rem;
+    .card-position {
+        font-size: 0.8rem;
+    }
+    
+    .shuffle-text {
+        font-size: 1rem;
+    }
+    
+    .interpretation-card-name {
+        font-size: 1.05rem;
+    }
+    
+    .interpretation-meaning {
+        font-size: 0.95rem;
+    }
+    
+    .overall-text {
+        font-size: 0.95rem;
     }
 }
