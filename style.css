@@ -661,3 +661,668 @@ body {
         font-size: 0.95rem;
     }
 }
+
+/* ==================== AI智能解读相关样式 ==================== */
+
+.settings-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.settings-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ai-feature-note {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(139, 69, 19, 0.7);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.question-input-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.question-label {
+    display: block;
+    font-size: 1.1rem;
+    color: rgba(139, 69, 19, 0.9);
+    margin-bottom: 10px;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.question-input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #8B4513;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.question-input:focus {
+    outline: none;
+    border-color: rgba(139, 69, 19, 0.6);
+    box-shadow: 0 0 15px rgba(139, 69, 19, 0.2);
+}
+
+.question-input::placeholder {
+    color: rgba(139, 69, 19, 0.5);
+}
+
+/* 设置模态框 */
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.settings-modal.hidden {
+    display: none;
+}
+
+.settings-content {
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFECD2 100%);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44DFF 100%);
+    color: white;
+}
+
+.settings-title {
+    font-size: 1.3rem;
+    margin: 0;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.settings-body {
+    padding: 25px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.settings-section {
+    margin-bottom: 25px;
+}
+
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+.settings-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #8B4513;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    gap: 10px;
+}
+
+.settings-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #FF6B9D;
+    cursor: pointer;
+}
+
+.settings-desc {
+    font-size: 0.9rem;
+    color: rgba(139, 69, 19, 0.7);
+    margin: 8px 0 0 30px;
+}
+
+#ai-settings-section {
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: 15px;
+}
+
+#ai-settings-section.hidden {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    font-size: 1rem;
+    color: #8B4513;
+    margin-bottom: 8px;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.required {
+    color: #FF4444;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #8B4513;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: rgba(255, 107, 157, 0.6);
+    box-shadow: 0 0 15px rgba(255, 107, 157, 0.2);
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238B4513' d='M6 9L1 4h10L6 9z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: rgba(139, 69, 19, 0.6);
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-slider {
+    flex: 1;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(139, 69, 19, 0.2);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44DFF 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 107, 157, 0.4);
+}
+
+.form-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44DFF 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(255, 107, 157, 0.4);
+}
+
+.slider-value {
+    min-width: 40px;
+    text-align: center;
+    font-size: 1rem;
+    color: #8B4513;
+    font-weight: bold;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    color: #8B4513;
+    margin: 0 0 15px 0;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.info-text {
+    font-size: 0.9rem;
+    color: rgba(139, 69, 19, 0.8);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.info-text.mt {
+    margin-top: 10px;
+}
+
+.info-text a {
+    color: #FF6B9D;
+    text-decoration: none;
+}
+
+.info-text a:hover {
+    text-decoration: underline;
+}
+
+.settings-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.cancel-btn,
+.save-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn {
+    background: rgba(139, 69, 19, 0.1);
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    color: #8B4513;
+}
+
+.cancel-btn:hover {
+    background: rgba(139, 69, 19, 0.2);
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44DFF 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+}
+
+.save-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+}
+
+/* 解读标签页 */
+.interpretation-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0 20px;
+}
+
+.tab-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+    color: #8B4513;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(139, 69, 19, 0.5);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44DFF 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+}
+
+/* AI解读区域 */
+.ai-loading {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 107, 157, 0.2);
+    border-top-color: #FF6B9D;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    font-size: 1.1rem;
+    color: #8B4513;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    margin: 0 0 10px 0;
+}
+
+.loading-subtext {
+    font-size: 0.9rem;
+    color: rgba(139, 69, 19, 0.7);
+    margin: 0;
+}
+
+.ai-content {
+    padding: 10px 0;
+}
+
+.ai-content.hidden {
+    display: none;
+}
+
+.ai-content h2,
+.ai-content h3,
+.ai-content h4 {
+    color: #8B4513;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.ai-content h2:first-child,
+.ai-content h3:first-child,
+.ai-content h4:first-child {
+    margin-top: 0;
+}
+
+.ai-content h2 {
+    font-size: 1.3rem;
+    border-bottom: 2px solid rgba(255, 107, 157, 0.3);
+    padding-bottom: 10px;
+}
+
+.ai-content h3 {
+    font-size: 1.15rem;
+}
+
+.ai-content h4 {
+    font-size: 1.05rem;
+}
+
+.ai-content p {
+    color: rgba(139, 69, 19, 0.85);
+    line-height: 1.8;
+    margin: 10px 0;
+    font-size: 0.98rem;
+}
+
+.ai-content ul,
+.ai-content ol {
+    color: rgba(139, 69, 19, 0.85);
+    line-height: 1.8;
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.ai-content li {
+    margin: 8px 0;
+    font-size: 0.98rem;
+}
+
+.ai-content strong {
+    color: #8B4513;
+}
+
+.ai-content em {
+    color: rgba(139, 69, 19, 0.7);
+}
+
+.ai-content hr {
+    border: none;
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+    margin: 25px 0;
+}
+
+.ai-error {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.ai-error.hidden {
+    display: none;
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin: 0 0 15px 0;
+}
+
+.error-title {
+    font-size: 1.2rem;
+    color: #FF4444;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    margin: 0 0 10px 0;
+}
+
+.error-message {
+    font-size: 0.95rem;
+    color: rgba(139, 69, 19, 0.7);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.ai-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.ai-interpret-btn,
+.ai-demo-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    transition: all 0.3s ease;
+}
+
+.ai-interpret-btn {
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44DFF 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+}
+
+.ai-interpret-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+}
+
+.ai-interpret-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ai-demo-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(139, 69, 19, 0.4);
+    color: #8B4513;
+}
+
+.ai-demo-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(139, 69, 19, 0.6);
+}
+
+/* 移动端适配 - AI相关 */
+@media (max-width: 768px) {
+    .settings-btn {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+    }
+    
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .settings-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .settings-body {
+        padding: 15px;
+    }
+    
+    .question-input {
+        padding: 10px 15px;
+    }
+    
+    .interpretation-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .ai-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ai-interpret-btn,
+    .ai-demo-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    #ai-settings-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-title {
+        font-size: 1.1rem;
+    }
+    
+    .settings-header,
+    .settings-footer {
+        padding: 15px;
+    }
+    
+    .form-label {
+        font-size: 0.95rem;
+    }
+    
+    .form-input,
+    .form-select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .info-text {
+        font-size: 0.85rem;
+    }
+    
+    .ai-content h2 {
+        font-size: 1.15rem;
+    }
+    
+    .ai-content h3 {
+        font-size: 1.05rem;
+    }
+    
+    .ai-content p,
+    .ai-content li {
+        font-size: 0.92rem;
+    }
+}
+
