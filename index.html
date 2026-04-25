@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萌猫塔罗 - 命运之轮</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1 class="title">🌟 萌猫塔罗 🌟</h1>
+            <p class="subtitle">喵星人的神秘力量</p>
+        </header>
+
+        <main class="main">
+            <div class="intro" id="intro-section">
+                <div class="cat-icon">🐱</div>
+                <p class="intro-text">
+                    欢迎来到萌猫塔罗的神秘世界！<br>
+                    让可爱的喵星人带你探索命运的奥秘～
+                </p>
+                <button class="start-btn" id="start-btn">开始占卜 ✨</button>
+            </div>
+
+            <div class="shuffle-section hidden" id="shuffle-section">
+                <div class="deck-container">
+                    <div class="deck" id="deck">
+                        <div class="card-back">
+                            <div class="card-pattern">
+                                <span class="cat-emoji">🐾</span>
+                                <span class="cat-emoji">🐱</span>
+                                <span class="cat-emoji">🐾</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-count" id="card-count">剩余: 78 张</div>
+                </div>
+                <p class="shuffle-text">点击牌堆洗牌，然后抽取三张牌</p>
+                <div class="action-buttons">
+                    <button class="shuffle-btn" id="shuffle-btn">洗牌 🎴</button>
+                    <button class="draw-btn hidden" id="draw-btn">抽牌 🎲</button>
+                </div>
+            </div>
+
+            <div class="reading-section hidden" id="reading-section">
+                <h2 class="reading-title">✨ 你的命运之牌 ✨</h2>
+                <div class="cards-container" id="cards-container">
+                    <!-- 抽到的牌会在这里显示 -->
+                </div>
+                <div class="interpretation-container" id="interpretation-container">
+                    <!-- 牌的解读会在这里显示 -->
+                </div>
+                <button class="restart-btn" id="restart-btn">重新占卜 🔄</button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>🔮 仅供娱乐，命运掌握在自己手中 🔮</p>
+        </footer>
+    </div>
+
+    <script src="tarot-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
